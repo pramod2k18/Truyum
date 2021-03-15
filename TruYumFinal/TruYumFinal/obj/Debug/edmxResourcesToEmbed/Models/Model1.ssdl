@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TruYumModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CartId" />
+    </Key>
+    <Property Name="CartId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuItemId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="MenuItem">
+    <Key>
+      <PropertyRef Name="MenuItemId" />
+    </Key>
+    <Property Name="MenuItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateOfLaunch" Type="datetime" Nullable="false" />
+    <Property Name="CategoryId" Type="int" Nullable="false" />
+    <Property Name="FreeDelivery" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Cart__MenuItemId__29572725">
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MenuItem">
+        <PropertyRef Name="MenuItemId" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="MenuItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__MenuItem__Catego__267ABA7A">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="MenuItem" Type="Self.MenuItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="MenuItem">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TruYumModelStoreContainer">
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MenuItem" EntityType="Self.MenuItem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cart__MenuItemId__29572725" Association="Self.FK__Cart__MenuItemId__29572725">
+      <End Role="MenuItem" EntitySet="MenuItem" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="FK__MenuItem__Catego__267ABA7A" Association="Self.FK__MenuItem__Catego__267ABA7A">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="MenuItem" EntitySet="MenuItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<TruYumFinal.Models.MenuItem>
+
+@{
+    ViewBag.Title = "MenuItem";
+}
+
+<head>
+    <title>TruYum</title>
+</head>
+<style>
+    body {
+        background-color: #caf0f8;
+    }
+</style>
+<body>
+
+    <h2>Menu items - Admin Portal</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfLaunch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfLaunch)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreeDelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.MenuItemId })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>

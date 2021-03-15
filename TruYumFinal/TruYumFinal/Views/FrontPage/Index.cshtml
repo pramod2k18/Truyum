@@ -1,0 +1,95 @@
+﻿@{ ViewBag.Title = "Index";
+   Layout = null;
+ }
+
+<head>
+    <title>TruYum Restaurant</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="style/style.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url("/Images/img1.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    .navbar {
+        opacity: 0.5;
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        font-weight: 400;
+        color: #606060;
+        text-align: center;
+    }
+
+    .header-buttons a {
+        border: 1px solid #fff;
+        border-radius: 100px;
+        margin: 0 5px;
+        padding: 12px 35px;
+        outline: none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 1.4;
+        text-align: center;
+        top: 50%;
+        left: 37%;
+        position: relative;
+    }
+
+        .header-buttons a:hover {
+            color: #50d1c0;
+            background: #fff;
+            text-decoration: none;
+            box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+        }
+
+    .center-div p {
+        font-size: 30px;
+        padding: 10px 0 20px 0;
+        color: #696969;
+        text-shadow: 2px 2px 5px #000000;
+    }
+
+    h1 {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        color: aliceblue;
+        font-size: 50px;
+        text-shadow: 2px 2px 5px #000000;
+        margin-top: 200px;
+    }
+   
+    p.thick {
+        font-weight: bold;
+        color: #e5aa70;
+    }
+    
+</style>
+<body>
+
+    <div class="container-fluid">
+
+
+        <div class="center-div">
+           
+                <h1 class="font-weight-bold"> Welcome to TruYum Restaurant</h1>
+           
+                <p class="thick">Good food and great vibes</p>
+                <div class="header-buttons">
+                    @Html.ActionLink("Register", "Register", "Account")
+                    @Html.ActionLink("Login", "Login", "Account")
+                </div>
+            </div>
+        </div>
+
+</body>

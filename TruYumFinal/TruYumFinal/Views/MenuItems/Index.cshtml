@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TruYumFinal.Models.MenuItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<head>
+    <title>TruYum</title>
+</head>
+<style>
+
+    body {
+        background-color: #caf0f8;
+    }
+</style>
+<body>
+    <h2>Menu items</h2>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FreeDelivery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </th>
+
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FreeDelivery)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+
+
+
+                <td>
+                    @Html.ActionLink("Add to Cart", "AddToCart", new { id = item.MenuItemId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

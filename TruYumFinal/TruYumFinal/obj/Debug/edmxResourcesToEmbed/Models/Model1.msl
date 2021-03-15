@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TruYumModelStoreContainer" CdmEntityContainer="TruYumContext1">
+    <EntitySetMapping Name="Carts">
+      <EntityTypeMapping TypeName="TruYumModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
+          <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="TruYumModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuItems">
+      <EntityTypeMapping TypeName="TruYumModel.MenuItem">
+        <MappingFragment StoreEntitySet="MenuItem">
+          <ScalarProperty Name="MenuItemId" ColumnName="MenuItemId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateOfLaunch" ColumnName="DateOfLaunch" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="FreeDelivery" ColumnName="FreeDelivery" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
